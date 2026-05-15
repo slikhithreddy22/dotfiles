@@ -107,3 +107,5 @@
       :desc "Open terminal" "o e" #'vterm)
 
 (global-set-key (kbd "C-a") #'mark-whole-buffer)
+
+(setq markdown-command "pandoc")
