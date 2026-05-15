@@ -48,7 +48,11 @@
            "* %?\nCREATED: %U\n")
           ("j" "Journal" entry
            (file+olp+datetree "~/org/journal/journal.org")
-           "* %?\n%U\n")))
+           "* %?\n%U\n")
+          ("n" "Quick Note" entry
+           (file+datetree "~/org/instantNotes.org")
+           "* %?\n  %T\n"
+           :empty-lines 1)))
   (setq org-ellipsis " ▾"
         org-hide-emphasis-markers t
         org-src-fontify-natively t

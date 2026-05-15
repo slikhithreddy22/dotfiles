@@ -20,3 +20,4 @@ if status is-interactive
     alias em="emacs -nw"
 end
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
