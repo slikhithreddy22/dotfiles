@@ -113,3 +113,7 @@
 (global-set-key (kbd "C-a") #'mark-whole-buffer)
 
 (setq markdown-command "pandoc")
+
+(after! python
+  (add-hook 'python-mode-hook #'eglot-ensure)
+  (add-hook 'python-ts-mode-hook #'eglot-ensure))
