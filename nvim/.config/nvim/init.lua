@@ -352,17 +352,32 @@ do
   -- Useful plugin to show you pending keybinds.
   vim.pack.add { gh 'folke/which-key.nvim' }
   require('which-key').setup {
-    -- Delay between pressing a key and opening which-key (milliseconds)
     delay = 0,
     icons = { mappings = vim.g.have_nerd_font },
-    -- Document existing key chains
     spec = {
       { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
       { '<leader>t', group = '[T]oggle' },
-      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
+      { '<leader>g', group = 'Git' },
+      { '<leader>gs', desc = 'Stage hunk', mode = { 'n', 'v' } },
+      { '<leader>gr', desc = 'Reset hunk', mode = { 'n', 'v' } },
+      { '<leader>gS', desc = 'Stage buffer' },
+      { '<leader>gR', desc = 'Reset buffer' },
+      { '<leader>gp', desc = 'Preview hunk' },
+      { '<leader>gi', desc = 'Preview hunk inline' },
+      { '<leader>gb', desc = 'Blame line' },
+      { '<leader>gd', desc = 'Diff against index' },
+      { '<leader>gD', desc = 'Diff against last commit' },
+      { '<leader>gQ', desc = 'Hunk quickfix list (all files)' },
+      { '<leader>gq', desc = 'Hunk quickfix list (this file)' },
+      { '<leader>gg', desc = 'Lazygit' },
+      { '<leader>tb', desc = 'Toggle blame line' },
+      { '<leader>tw', desc = 'Toggle word diff' },
       { 'gr', group = 'LSP Actions', mode = { 'n' } },
     },
   }
+
+  vim.pack.add { gh 'kdheepak/lazygit.nvim' }
+  vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>', { desc = 'Lazygit' })
 
   -- [[ Colorscheme ]]
   -- You can easily change to a different colorscheme.
