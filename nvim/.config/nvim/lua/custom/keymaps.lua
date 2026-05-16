@@ -17,3 +17,10 @@ vim.keymap.set('n', '<C-a>', 'ggVG', {
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', {
   desc = 'Quit window',
 })
+
+-- Buffer management
+vim.keymap.set('n', '<leader>bb', '<C-^>', { desc = 'Alternate buffer' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = 'Delete buffer' })
+vim.keymap.set('n', '<leader>bn', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>bl', '<cmd>Telescope buffers<CR>', { desc = 'List buffers' })

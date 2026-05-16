@@ -358,6 +358,7 @@ do
       { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>g', group = 'Git' },
+      { '<leader>b', group = '[B]uffers' },
       { '<leader>gs', desc = 'Stage hunk', mode = { 'n', 'v' } },
       { '<leader>gr', desc = 'Reset hunk', mode = { 'n', 'v' } },
       { '<leader>gS', desc = 'Stage buffer' },
