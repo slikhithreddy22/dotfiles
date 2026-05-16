@@ -754,11 +754,6 @@ do
     gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
   }
 
-vim.cmd('packadd nvim-lspconfig')
-vim.cmd('packadd mason.nvim')
-vim.cmd('packadd mason-lspconfig.nvim')
-vim.cmd('packadd mason-tool-installer.nvim')
-
   -- Automatically install LSPs and related tools to stdpath for Neovim
   require('mason').setup {}
 
