@@ -938,7 +938,10 @@ do
     local has_indent_query = vim.treesitter.query.get(language, 'indents') ~= nil
 
     -- Enable treesitter based indentation
-    if has_indent_query then vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" end
+    -- We disable it for C/C++ because it often fails to indent correctly when typing incomplete syntax like `int main {`
+    if has_indent_query and language ~= 'c' and language ~= 'cpp' then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
   end
 
   local available_parsers = require('nvim-treesitter').get_available()
