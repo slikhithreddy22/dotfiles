@@ -686,12 +686,29 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    clangd = {}, -- C / C++
-    gopls = {}, -- Go (requires `go` on PATH)
-    pyright = {}, -- Python
-    rust_analyzer = {}, -- Rust (requires `cargo` / rustup)
-    ts_ls = {}, -- JavaScript / TypeScript
-    jdtls = {}, -- Java (requires JDK 17+ on PATH; run `:Mason` to install jdtls)
+    -- C/C++
+    clangd = {},
+    
+    -- Go
+    gopls = {},
+    
+    -- Python
+    pyright = {},
+    
+    -- Rust
+    rust_analyzer = {},
+    
+    -- Java
+    jdtls = {},
+    
+    -- JavaScript/TypeScript
+    ts_ls = {},
+    
+    -- Some languages (like typescript) have entire language plugins that can be useful:
+    --    https://github.com/pmizio/typescript-tools.nvim
+    --
+    -- But for many setups, the LSP (`ts_ls`) will work just fine
+    -- typescript-tools = {},
 
     stylua = {}, -- Used to format Lua code
 
@@ -737,6 +754,11 @@ do
     gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
   }
 
+vim.cmd('packadd nvim-lspconfig')
+vim.cmd('packadd mason.nvim')
+vim.cmd('packadd mason-lspconfig.nvim')
+vim.cmd('packadd mason-tool-installer.nvim')
+
   -- Automatically install LSPs and related tools to stdpath for Neovim
   require('mason').setup {}
 
@@ -749,12 +771,7 @@ do
   -- You can press `g?` for help in this menu.
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
-    'ruff', -- Python format (and lint if you enable kickstart.plugins.lint)
-    'clang-format',
-    'google-java-format',
-    'rustfmt',
-    'prettierd',
-    'prettier',
+    -- You can add other tools here that you want Mason to install
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -777,15 +794,8 @@ do
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
-        lua = true,
-        python = true,
-        java = true,
-        c = true,
-        cpp = true,
-        go = true,
-        rust = true,
-        javascript = true,
-        typescript = true,
+        -- lua = true,
+        -- python = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -798,21 +808,16 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
-      lua = { 'stylua' },
-      python = { 'ruff_format' },
-      java = { 'google_java_format' },
-      c = { 'clang_format' },
-      cpp = { 'clang_format' },
-      go = { 'gofmt', 'goimports', stop_after_first = true },
-      rust = { 'rustfmt' },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      -- rust = { 'rustfmt' },
+      -- Conform can also run multiple formatters sequentially
+      -- python = { "isort", "black" },
+      --
+      -- You can use 'stop_after_first' to run the first available formatter from the list
+      -- javascript = { "prettierd", "prettier", stop_after_first = true },
     },
   }
 
-  vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
+  -- vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
 end
 
 -- ============================================================
@@ -872,6 +877,10 @@ do
     },
 
     completion = {
+      menu = {
+        -- Show completion menu while typing (not only after <C-Space>)
+        auto_show = true,
+      },
       -- By default, you may press `<c-space>` to show the documentation.
       -- Optionally, set `auto_show = true` to show the documentation after a delay.
       documentation = { auto_show = false, auto_show_delay_ms = 500 },
@@ -911,26 +920,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = {
-    'bash',
-    'c',
-    'cpp',
-    'diff',
-    'go',
-    'html',
-    'java',
-    'javascript',
-    'lua',
-    'luadoc',
-    'markdown',
-    'markdown_inline',
-    'python',
-    'query',
-    'rust',
-    'typescript',
-    'vim',
-    'vimdoc',
-  }
+  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
@@ -992,17 +982,17 @@ do
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug'
-  -- require 'kickstart.plugins.indent_line'
-  -- require 'kickstart.plugins.lint'
-  -- require 'kickstart.plugins.autopairs'
-  -- require 'kickstart.plugins.neo-tree'
-  -- require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
+  require 'kickstart.plugins.debug'
+  require 'kickstart.plugins.indent_line'
+  require 'kickstart.plugins.lint'
+  require 'kickstart.plugins.autopairs'
+  require 'kickstart.plugins.neo-tree'
+  require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
 
   -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- require 'custom.plugins'
+  require 'custom.plugins'
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
