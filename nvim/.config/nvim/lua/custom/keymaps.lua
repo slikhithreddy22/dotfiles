@@ -14,8 +14,12 @@ vim.keymap.set('n', '<C-a>', 'ggVG', {
   desc = 'Select all in file',
 })
 
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', {
+vim.keymap.set('n', '<leader>qq', '<cmd>q<CR>', {
   desc = 'Quit window',
+})
+
+vim.keymap.set('n', '<leader>qa', '<cmd>qa<CR>', {
+  desc = 'Quit all',
 })
 
 -- Buffer management
