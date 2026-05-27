@@ -9,7 +9,7 @@ decorations = "full"
 startup_mode = "Windowed"
 
 [font]
-size = 12.5
+size = 13
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
@@ -71,5 +71,5 @@ bindings = [
   { key = "C", mods = "Control|Shift", action = "Copy" },
   { key = "Plus", mods = "Control", action = "IncreaseFontSize" },
   { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
-  { key = "Key0", mods = "Control", action = "ResetFontSize" }
+  { key = "Key0", mods = "Control", action = "ResetFontSize" },
 ]
