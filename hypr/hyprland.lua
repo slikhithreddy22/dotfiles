@@ -44,11 +44,11 @@ hl.config({
     general = {
         gaps_in          = 2,
         gaps_out         = 5,
-        border_size      = 2,
+        border_size      = 1,
 
         col              = {
-            active_border   = "rgba(33ccffee)", -- warm stone, slightly transparent
-            inactive_border = "rgba(595959aa)", -- near-black
+            active_border   = "rgba(a6adc888)", -- subtle, soft muted border
+            inactive_border = "rgba(31324444)", -- very faint dark border
         },
 
         resize_on_border = true,
@@ -113,7 +113,8 @@ hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2.5, bezier = "qu
 hl.config({
     dwindle = {
         preserve_split = true,
-        smart_split    = true,
+        smart_split    = false,
+        force_split    = 2,
     },
 })
 
