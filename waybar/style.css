@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background-color: #111111;
+    background-color: rgba(17, 17, 17, 0.65);
     color: #cdd6f4;
     transition-property: background-color;
     transition-duration: 0.5s;
@@ -25,24 +25,24 @@ window#waybar {
     padding: 2px 8px;
     margin: 3px 2px;
     color: #585b70;
-    background-color: #1e1e2e;
+    background-color: rgba(30, 30, 46, 0.7);
     border-radius: 6px;
     transition: all 0.2s ease;
 }
 
 #workspaces button.active {
     color: #cdd6f4;
-    background-color: #313244;
+    background-color: rgba(49, 50, 68, 0.85);
 }
 
 #workspaces button.urgent {
     color: #f38ba8;
-    background-color: #1e1e2e;
+    background-color: rgba(30, 30, 46, 0.7);
 }
 
 #workspaces button:hover {
     color: #cdd6f4;
-    background-color: #313244;
+    background-color: rgba(49, 50, 68, 0.85);
 }
 
 /* ── Generic module ─────────────────────────────────────────── */
@@ -59,7 +59,7 @@ window#waybar {
     padding: 4px 10px;
     margin: 3px 2px;
     color: #cdd6f4;
-    background-color: #1e1e2e;
+    background-color: rgba(30, 30, 46, 0.7);
     border-radius: 6px;
 }
 
@@ -146,7 +146,7 @@ window#waybar {
 /* ── Tray ───────────────────────────────────────────────────── */
 
 #tray {
-    background-color: #1e1e2e;
+    background-color: rgba(30, 30, 46, 0.7);
 }
 
 #tray > .passive {
