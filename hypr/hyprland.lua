@@ -23,6 +23,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dunst")
     hl.exec_cmd("wl-paste --watch cliphist store")
     hl.exec_cmd("swayosd-server")
+    hl.exec_cmd("hypridle")
 end)
 
 
@@ -129,6 +130,8 @@ hl.config({
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo   = true,
+        mouse_move_enables_dpms = true,
+        key_press_enables_dpms  = true,
     },
 })
 
@@ -175,7 +178,8 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("sh -c \"hyprlock & sleep 0.5 && hyprctl dispatch \\\"hl.dsp.dpms('off')\\\"\""))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
 
 -- hl.bind(mainMod .. " + M",         hl.dsp.exec_cmd(
 --    "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
