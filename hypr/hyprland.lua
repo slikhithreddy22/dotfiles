@@ -12,7 +12,7 @@ local browser          = "/opt/zen-browser-bin/zen-bin"
 -- local fileManager = "dolphin"
 -- local menu        = "wofi --show drun"
 local menu             = "rofi -show drun -show-icons"
-local clipboardHistory = "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+local clipboardHistory = "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
 
 
 --
@@ -21,7 +21,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("dunst")
-    hl.exec_cmd("wl-paste --watch cliphist store")
+    hl.exec_cmd("sh -c 'cliphist wipe && wl-paste --watch cliphist store'")
     hl.exec_cmd("swayosd-server")
     hl.exec_cmd("hypridle")
 end)

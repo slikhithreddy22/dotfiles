@@ -21,6 +21,6 @@ case "$1" in
 esac
 
 if [ -f "$FILENAME" ]; then
-    wl-copy < "$FILENAME"
+    wl-copy --type image/png < "$FILENAME"
     notify-send -i "$FILENAME" "Screenshot Saved" "Saved to Pictures/Screenshots and copied to clipboard"
 fi
