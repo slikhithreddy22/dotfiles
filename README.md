@@ -6,6 +6,8 @@ My personal configuration files for:
 * Alacritty
 * Fish
 * Tmux
+* Hyprland
+* Waybar
 
 ## Repository Structure
 
@@ -13,8 +15,10 @@ My personal configuration files for:
 dotfiles/
 ├── alacritty/
 ├── fish/
+├── hypr/
 ├── nvim/
 ├── tmux/
+├── waybar/
 └── README.md
 ```
 
@@ -25,6 +29,8 @@ mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.config/alacritty ~/.config/alacritty.bak
 mv ~/.config/fish ~/.config/fish.bak
 mv ~/.config/tmux ~/.config/tmux.bak
+mv ~/.config/hypr ~/.config/hypr.bak
+mv ~/.config/waybar ~/.config/waybar.bak
 ```
 
 ## Clone
@@ -41,6 +47,8 @@ ln -s ~/dotfiles/nvim ~/.config/nvim
 ln -s ~/dotfiles/alacritty ~/.config/alacritty
 ln -s ~/dotfiles/fish ~/.config/fish
 ln -s ~/dotfiles/tmux ~/.config/tmux
+ln -s ~/dotfiles/hypr ~/.config/hypr
+ln -s ~/dotfiles/waybar ~/.config/waybar
 ```
 
 ## Fonts

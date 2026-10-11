@@ -1,0 +1,159 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #111111;
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+/* ── Bar sections ───────────────────────────────────────────── */
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 6px;
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    margin: 3px 2px;
+    color: #585b70;
+    background-color: #1e1e2e;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    color: #cdd6f4;
+    background-color: #313244;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    background-color: #1e1e2e;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background-color: #313244;
+}
+
+/* ── Generic module ─────────────────────────────────────────── */
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#bluetooth,
+#tray,
+#submap {
+    padding: 4px 10px;
+    margin: 3px 2px;
+    color: #cdd6f4;
+    background-color: #1e1e2e;
+    border-radius: 6px;
+}
+
+/* ── Clock ──────────────────────────────────────────────────── */
+
+#clock {
+    color: #89dceb;
+}
+
+/* ── Battery ────────────────────────────────────────────────── */
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #fff;
+    }
+}
+
+/* ── CPU ────────────────────────────────────────────────────── */
+
+#cpu {
+    color: #89b4fa;
+}
+
+/* ── Memory ─────────────────────────────────────────────────── */
+
+#memory {
+    color: #cba6f7;
+}
+
+/* ── Network ────────────────────────────────────────────────── */
+
+#network {
+    color: #94e2d5;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* ── Audio ──────────────────────────────────────────────────── */
+
+#pulseaudio {
+    color: #f5c2e7;
+}
+
+#pulseaudio.muted {
+    color: #585b70;
+}
+
+/* ── Bluetooth ──────────────────────────────────────────────── */
+
+#bluetooth {
+    color: #89b4fa;
+}
+
+#bluetooth.disabled {
+    color: #585b70;
+}
+
+/* ── Submap ─────────────────────────────────────────────────── */
+
+#submap {
+    color: #f9e2af;
+    font-weight: bold;
+}
+
+/* ── Tray ───────────────────────────────────────────────────── */
+
+#tray {
+    background-color: #1e1e2e;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+}
