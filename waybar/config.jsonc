@@ -12,7 +12,7 @@
     },
     "battery": {
         "interval": 60,
-        "format": "{capacity}% {icon}",
+        "format": "{icon} {capacity}%",
         "format-icons": {
             "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
             "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
@@ -41,7 +41,7 @@
     },
     "network": {
         "format": "",
-        "format-wifi": "",
+        "format-wifi": "󰤨",
         "format-ethernet": "",
         "format-disconnected": "󰤭", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
@@ -61,7 +61,7 @@
       },
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
+        "format": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "default": ["", ""]

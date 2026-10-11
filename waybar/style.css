@@ -63,6 +63,12 @@ window#waybar {
     border-radius: 6px;
 }
 
+#network,
+#bluetooth {
+    min-width: 20px;
+    padding: 4px 8px;
+}
+
 /* ── Subtle status cues only ────────────────────────────────── */
 
 #battery.warning:not(.charging) {
