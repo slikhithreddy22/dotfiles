@@ -179,9 +179,10 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("sh -c \"hyprlock & sleep 0.5 && hyprctl dispatch \\\"hl.dsp.dpms('off')\\\"\""))
+hl.bind(mainMod .. " + L",
+    hl.dsp.exec_cmd("sh -c \"hyprlock & sleep 0.5 && hyprctl dispatch \\\"hl.dsp.dpms('off')\\\"\""))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
-
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
 -- hl.bind(mainMod .. " + M",         hl.dsp.exec_cmd(
 --    "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 -- ))
